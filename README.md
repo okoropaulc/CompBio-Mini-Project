@@ -47,4 +47,5 @@ Sixth, use bowtie2 to build genome index with the UPEC strains.
 Seventh, use tophat2 to map each UPEC strain transcriptome to their respective genome.
 Eight, use cufflinks to quantify the gene expression.
 
-
+# Example Output
+The sample output from running the script is saved in the file UPEC.log
