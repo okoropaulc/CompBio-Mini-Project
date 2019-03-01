@@ -1,0 +1,53 @@
+
+There are 284 contigs in the assembly HM27.
+There are 42 contigs in the assembly HM46.
+There are 0 contigs in the assembly HM65.
+There are 124 contigs in the assembly HM69.
+
+There are 5161340 bp in the assembly HM27.
+There are 4961831 bp in the assembly HM46.
+There are 0 bp in the assembly HM65.
+There are 5367837 bp in the assembly HM69.
+
+prokka  --outdir HM27 --prefix HM27 --genus Escherichia --usegenus GCF_000387825.2_ASM38782v2_genomic.fna
+prokka  --outdir HM46 --prefix HM46 --genus Escherichia --usegenus GCF_000387845.2_ASM38784v2_genomic.fna
+prokka  --outdir HM65 --prefix HM65 --genus Escherichia --usegenus GCF_000387785.2_ASM38778v2_genomic.fna
+prokka  --outdir HM69 --prefix HM69 --genus Escherichia --usegenus GCF_000387865.2_ASM38786v2_genomic.fna
+
+Annotation Results for HM27 
+organism: Escherichia species strain 
+contigs: 284
+bases: 5161340
+tRNA: 74
+tmRNA: 1
+CDS: 4785
+
+Annotation Results for HM46 
+organism: Escherichia species strain 
+contigs: 42
+bases: 4961831
+CDS: 4587
+tmRNA: 1
+tRNA: 81
+
+Annotation Results for HM65 
+organism: Escherichia species strain 
+contigs: 75
+bases: 5156838
+CDS: 4824
+tRNA: 78
+tmRNA: 2
+
+Annotation Results for HM69 
+organism: Escherichia species strain 
+contigs: 124
+bases: 5367837
+tmRNA: 1
+tRNA: 76
+CDS: 5034
+
+
+Prokka found 645 additional CDS and 15 less tRNA than the RefSeq in assembly HM27
+Prokka found 447 additional CDS and 8 less tRNA than the RefSeq in assembly HM46
+Prokka found 684 additional CDS and 11 less tRNA than the RefSeq in assembly HM65
+Prokka found 894 additional CDS and 13 less tRNA than the RefSeq in assembly HM69
