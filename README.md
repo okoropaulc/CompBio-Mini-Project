@@ -17,6 +17,7 @@ Python3
 python3 mini_project.py --input_path <folder>
 The folder is the directory where you want the analysis results and data to be stored.
 
+# Project Description
 More specifically and per this project, the analysis contained herein is targetted at quantifying differential gene expression among four different strains of Uropathogenic E.Coli (UPEC). The four strains of UPEC used here are HM27, HM46, HM65, HM69. The genome assemblies are available at:
 
 HM27:  https://www.ncbi.nlm.nih.gov/nuccore/APNU00000000
@@ -35,6 +36,7 @@ HM69:  https://www.ncbi.nlm.nih.gov/sra/SRX541316
 
 All output of each step below is written out in a logfile, UPEC.log
 
+# Workflow
 Firstly, fetch the genome of the four given strains
 Secondly, calculate the number of contigs in each assembly
 Thirdly, calculate the total length of base pairs in each assembly
