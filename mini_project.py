@@ -3,7 +3,18 @@
 import os
 from Bio import SeqIO
 from Bio.Seq import Seq
-os.chdir("/home/pokoro/Paul_Okoro") #change the current working directory to your desired diretory
+
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--input_path", type = str, action = "store", required = True, help = "Path to folder containing your data")
+args = parser.parse_args()
+
+path = args.input_path
+
+#os.chdir("/home/pokoro/Paul_Okoro") #change the current working directory to your desired diretory
+os.chdir(path) #the folder to store your analysis results
 
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/387/825/GCF_000387825.2_ASM38782v2/GCF_000387825.2_ASM38782v2_genomic.fna.gz") #download the HM27 assembly
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/387/845/GCF_000387845.2_ASM38784v2/GCF_000387845.2_ASM38784v2_genomic.fna.gz") #HM46 assembly
@@ -136,7 +147,6 @@ os.system("wget ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/S
 os.system("fastq-dump -I --split-files SRR1283106.sra") #HM65
 
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR127/SRR1278963/SRR1278963.sra")
-
 os.system("fastq-dump -I --split-files SRR1278963.sra") #HM69
 
 #Download the refseq assembled genome for E. coli K-12 (NC_000913) 
