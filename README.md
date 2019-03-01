@@ -14,7 +14,8 @@ Biopython
 Python3
 
 # How to run the script
-python3 mini_project.py --input_path <folder>
+python3 mini_project.py --input_path folder
+
 The folder is the directory where you want the analysis results and data to be stored.
 
 # Project Description
