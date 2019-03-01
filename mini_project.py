@@ -177,7 +177,7 @@ os.system("mv HM46.fna HM46.fa")
 os.system("mv HM65.fna HM65.fa")
 os.system("mv HM69.fna HM69.fa")
 
-#Map reads with TopHat use
+#Map reads with TopHat
 
 os.system("tophat2 -p 2 -o HM27_tophat HM27 SRR1278956_1.fastq SRR1278956_2.fastq")
 os.system("tophat2 -p 2 -o HM46_tophat HM46 SRR1278960_1.fastq SRR1278960_2.fastq")
