@@ -37,10 +37,10 @@ HM69:  https://www.ncbi.nlm.nih.gov/sra/SRX541316
 All output of each step below is written out in a logfile, UPEC.log
 
 # Workflow
-Firstly, fetch the genome of the four given strains
-Secondly, calculate the number of contigs in each assembly
-Thirdly, calculate the total length of base pairs in each assembly
-Fourth, annotate each assembly using the prokka software
+Firstly, fetch the genome of the four given strains.
+Secondly, calculate the number of contigs in each assembly.
+Thirdly, calculate the total length of base pairs in each assembly.
+Fourth, annotate each assembly using the prokka software.
 Fifth, since assembled genome in RefSeq for E. coli K-12 (NC_000913) has 4140 CDS and 89 tRNAs annotated. Compare each annotated assembly to the E.coli k-12 annotation.
 Sixth, use bowtie2 to build genome index with the UPEC strains.
 Seventh, use tophat2 to map each UPEC strain transcriptome to their respective genome.
