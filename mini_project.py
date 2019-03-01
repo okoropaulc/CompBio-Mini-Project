@@ -4,7 +4,7 @@ import os
 from Bio import SeqIO
 from Bio.Seq import Seq
 os.chdir("/home/pokoro/Paul_Okoro") #change the current working directory to your desired diretory
-"""
+
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/387/825/GCF_000387825.2_ASM38782v2/GCF_000387825.2_ASM38782v2_genomic.fna.gz") #download the HM27 assembly
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/387/845/GCF_000387845.2_ASM38784v2/GCF_000387845.2_ASM38784v2_genomic.fna.gz") #HM46 assembly
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/387/785/GCF_000387785.2_ASM38778v2/GCF_000387785.2_ASM38778v2_genomic.fna.gz") #HM65 assembly
@@ -136,8 +136,8 @@ os.system("wget ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/S
 os.system("fastq-dump -I --split-files SRR1283106.sra") #HM65
 
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR127/SRR1278963/SRR1278963.sra")
-"""
-#os.system("fastq-dump -I --split-files SRR1278963.sra") #HM69
+
+os.system("fastq-dump -I --split-files SRR1278963.sra") #HM69
 
 #Download the refseq assembled genome for E. coli K-12 (NC_000913) 
 #os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Bacteria/Escherichia_coli_K_12_substr__MG1655_uid57779/NC_000913.fna")
@@ -148,57 +148,35 @@ os.system("wget ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/S
 #Build genome index with the E.Coli k-12 (NC_000913)
 #os.system("bowtie2-build NC_000913.fna EColi_K12")
 #os.system("mv NC_000913.fna EColi_K12.fa")
+
 #Build index with the HM ecoli genome
-#os.system("bowtie2-build HM27/HM27.fna HM27")
-#os.system("bowtie2-build HM46/HM46.fna HM46")
-#os.system("bowtie2-build HM65/HM65.fna HM65")
-#os.system("bowtie2-build HM69/HM69.fna HM69")
+os.system("bowtie2-build HM27/HM27.fna HM27")
+os.system("bowtie2-build HM46/HM46.fna HM46")
+os.system("bowtie2-build HM65/HM65.fna HM65")
+os.system("bowtie2-build HM69/HM69.fna HM69")
 
-#os.system("cp HM27/HM27.fna /home/pokoro/Paul_Okoro")
-#os.system("cp HM46/HM46.fna /home/pokoro/Paul_Okoro")
-#os.system("cp HM65/HM65.fna /home/pokoro/Paul_Okoro")
-#os.system("cp HM69/HM69.fna /home/pokoro/Paul_Okoro")
+#Copy each HM genome to the same directory with the genome index
+os.system("cp HM27/HM27.fna /home/pokoro/Paul_Okoro")
+os.system("cp HM46/HM46.fna /home/pokoro/Paul_Okoro")
+os.system("cp HM65/HM65.fna /home/pokoro/Paul_Okoro")
+os.system("cp HM69/HM69.fna /home/pokoro/Paul_Okoro")
 
-#os.system("mv HM27.fna HM27.fa")
-#os.system("mv HM46.fna HM46.fa")
-#os.system("mv HM65.fna HM65.fa")
-#os.system("mv HM69.fna HM69.fa")
-
-#Map reads with TopHat use
-#os.system("tophat2 -p 10 -G HM27/HM27.gff -o HM27_tophat EColi_K12 SRR1278956_1.fastq SRR1278956_2.fastq") #HM27
-#os.system("tophat2 -p 10 -G HM46/HM46.gff -o HM46_tophat EColi_K12 SRR1278960_1.fastq SRR1278960_2.fastq") #HM46
-#os.system("tophat2 -p 10 -G HM65/HM65.gff -o HM65_tophat EColi_K12 SRR1283106_1.fastq SRR1283106_2.fastq") #HM65
-#os.system("tophat2 -p 10 -G HM69/HM69.gff -o HM69_tophat EColi_K12 SRR1278963_1.fastq SRR1278963_2.fastq") #HM69
+#Change the HM genome extension to .fa
+os.system("mv HM27.fna HM27.fa")
+os.system("mv HM46.fna HM46.fa")
+os.system("mv HM65.fna HM65.fa")
+os.system("mv HM69.fna HM69.fa")
 
 #Map reads with TopHat use
-#repair forward and reverse reads to avoid mismatch
-#os.system("bbmap/repair.sh in1=SRR1278956_1.fastq in2=SRR1278956_2.fastq out1=fixedHM27_1.fq out2=fixedHM27_2.fq outsingle=singleHM27.fq")
-#os.system("tophat2 -p 10 -o HM27_tophat EColi_K12 fixedHM27_1.fq fixedHM27_2.fq")
-
-#os.system("tophat2 -p 10 -o HM27_tophat EColi_K12 SRR1278956_1.fastq SRR1278956_2.fastq") #HM27
-#os.system("tophat2 -p 10 -o HM46_tophat EColi_K12 SRR1278960_1.fastq SRR1278960_2.fastq") #HM46
-#os.system("tophat2 -p 10 -o HM65_tophat EColi_K12 SRR1283106_1.fastq SRR1283106_2.fastq") #HM65
-#os.system("tophat2 -p 10 -o HM69_tophat EColi_K12 SRR1278963_1.fastq SRR1278963_2.fastq") #HM69
-
-#os.system("bbmap/repair.sh in1=SRR1278963_1.fastq in2=SRR1278963_2.fastq out1=fixedHM69_1.fq out2=fixedHM69_2.fq outsingle=singleHM69.fq")
-
-#os.system("tophat2 -p 10 -G HM27/HM27.gff -o HM27_tophat HM27 SRR1278956_1.fastq SRR1278956_2.fastq") #HM27
 
 os.system("tophat2 -p 2 -o HM27_tophat HM27 SRR1278956_1.fastq SRR1278956_2.fastq")
 os.system("tophat2 -p 2 -o HM46_tophat HM46 SRR1278960_1.fastq SRR1278960_2.fastq")
 os.system("tophat2 -p 2 -o HM65_tophat HM65 SRR1283106_1.fastq SRR1283106_2.fastq")
 os.system("tophat2 -p 2 -o HM69_tophat HM69 SRR1278963_1.fastq SRR1278963_2.fastq")
 
-os.system("cufflinks -p 2 -o HM27_cufflinks HM27_tophat/accepted_hits.bam")
-os.system("cufflinks -p 2 -o HM46_cufflinks HM46_tophat/accepted_hits.bam")
-os.system("cufflinks -p 2 -o HM65_cufflinks HM65_tophat/accepted_hits.bam")
-os.system("cufflinks -p 2 -o HM69_cufflinks HM69_tophat/accepted_hits.bam")
-
 #Run the cufflinks using the GFF from prokka 
 os.system("cufflinks -p 2 -G HM27/HM27.gff -o HM27_cufflinks_GFF HM27_tophat/accepted_hits.bam")
 os.system("cufflinks -p 2 -G HM46/HM46.gff -o HM46_cufflinks_GFF HM46_tophat/accepted_hits.bam")
-os.system("cufflinks -p 2 -o HM65_cufflinks HM65_tophat/accepted_hits.bam")
+os.system("cufflinks -p 2 -G HM65/HM65.gff -o HM65_cufflinks_GFF HM65_tophat/accepted_hits.bam")
 os.system("cufflinks -p 2 -G HM69/HM69.gff -o HM69_cufflinks_GFF HM69_tophat/accepted_hits.bam")
 
-#Run cuffnorm to normalize all 4 transcriptomes of each strain
-os.system("cuffnorm -p 4 -o HM27_cuffnorm HM27_cufflinks_GFF/transcripts.gtf HM27_tophat/accepted_hits.bam HM46_tophat/accepted_hits.bam")
